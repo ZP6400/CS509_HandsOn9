@@ -1,0 +1,19 @@
+public class AnimalFactory {
+
+    public static IAnimal createAnimal(String animalType) {
+
+        if (animalType == null) {
+
+            return null;
+        }
+        if (animalType.equalsIgnoreCase("Dog")) {
+
+            return new Dog();
+        }
+        else if (animalType.equalsIgnoreCase("Cat")) {
+
+            return new Cat();
+        }
+        return null;
+    }
+}
