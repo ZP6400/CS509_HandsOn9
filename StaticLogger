@@ -1,0 +1,29 @@
+public class StaticLogger {
+
+    public enum LogLevel {
+
+        COMMENT,
+        WARNING,
+        ERROR
+    }
+
+    public static void log(LogLevel level, String message) {
+
+        switch (level) {
+
+            case COMMENT:
+
+                System.out.println("Comment: " + message);
+                break;
+            case WARNING:
+
+                System.out.println("\033[33mWarning: " + message + "\033[0m"); // Yellow text for warning
+                break;
+            case ERROR:
+
+                System.out.println("\033[31mError: " + message + "\033[0m"); // Red text for error
+                System.exit(1);  // Stop program execution on error
+                break;
+        }
+    }
+}
