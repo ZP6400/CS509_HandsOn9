@@ -1,3 +1,29 @@
+public interface IAnimal {
+
+    void speak();
+}
+
+
+public class Dog implements IAnimal {
+
+    @Override
+    public void speak() {
+
+        System.out.println("Woof");
+    }
+}
+
+
+public class Cat implements IAnimal {
+
+    @Override
+    public void speak() {
+
+        System.out.println("Meow");
+    }
+}
+
+
 public class AnimalFactory {
 
     public static IAnimal createAnimal(String animalType) {
@@ -15,5 +41,17 @@ public class AnimalFactory {
             return new Cat();
         }
         return null;
+    }
+}
+
+
+public class Main {
+    public static void main(String[] args) {
+
+        IAnimal dog = AnimalFactory.createAnimal("Dog");
+        IAnimal cat = AnimalFactory.createAnimal("Cat");
+
+        dog.speak();
+        cat.speak(); 
     }
 }
